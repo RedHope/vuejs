@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+
+<body>
+    <div id="app">
+        {{ message }}
+    </div>
+
+    <div id="app-2">
+        <span v-bind:title="message">
+            Hover your mouse over me for a few seconds to see my dynamically bound title!
+        </span>
+    </div>
+
+    <div id="app-5">
+        <input v-model="message">
+        <p>{{ message }}</p>
+        <button v-on:click="reverseMessage">Reverse Message</button>
+    </div>
+
+    <div id="example">
+        <p>{{message}}</p>
+        {{reversedMessage()}}
+        <div>
+            <label>Enter First name: </label>
+            <input v-model="firstName">
+            <label>Enter Last name: </label>
+            <input v-model="lastName"> {{fullName}}
+        </div>
+
+        <div v-if="Math.random() > 0.5">
+            Now you see me
+        </div>
+        <div v-else>
+            Now you don't
+        </div>
+    </div>
+
+    <script type="text/javascript" src="./source.js"></script>
+</body>
+
+</html>
