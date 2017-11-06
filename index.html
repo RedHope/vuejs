@@ -10,15 +10,33 @@
         {{ message }}
     </div>
 
+    <div id="exercise">
+        <p>VueJs is pretty cool - {{fullName}} {{age}}</p>
+        <p>{{mutatedAge()}}</p>
+        <p>{{Math.random(0, 1)}}</p>
+        <div>
+            <img v-bind:src="imageLink">
+        </div>
+        <div>
+            <input v-model="fullName">
+        </div>
+    </div>
+
     <div id="app-2">
         <span v-bind:title="message">
             Hover your mouse over me for a few seconds to see my dynamically bound title!
         </span>
+        <h1 v-once>{{welcomeMessage}}</h1>
+        <p>{{sayHello()}} - <a v-bind:href="link">Google</a></p>
+        <hr>
+        <p v-html="finishedLink"></p>
+        <p v-on:mousemove="updateCoordinates">{{x}} / {{y}}</p>
     </div>
 
     <div id="app-5">
         <input v-model="message">
         <p>{{ message }}</p>
+        <input v-model="newModel" v-on:input="onInput">
         <button v-on:click="reverseMessage">Reverse Message</button>
     </div>
 
