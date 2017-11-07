@@ -29,6 +29,8 @@ var app2 = new Vue({
 var app7 = new Vue({
     el: '#exercise',
     data: {
+        color: 'gray',
+        width: '100px',
         fullName: 'Sample Name',
         age: 10,
         imageLink: 'http://www.cs.cmu.edu/~chuck/lennapg/len_std.jpg'
@@ -36,6 +38,14 @@ var app7 = new Vue({
     methods: {
         mutatedAge: function () {
             return this.age * 3;
+        }
+    },
+    computed: {
+        myStyle: function () {
+            return {
+                'background-color': this.color,
+                width: this.width + 'px'
+            }
         }
     }
 })
