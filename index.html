@@ -11,15 +11,7 @@
     </div>
 
     <div id="exercise">
-        <p>VueJs is pretty cool - {{fullName}} {{age}}</p>
-        <p>{{mutatedAge()}}</p>
-        <p>{{Math.random(0, 1)}}</p>
-        <div>
-            <img v-bind:src="imageLink">
-        </div>
-        <div>
-            <input v-model="fullName">
-        </div>
+        
     </div>
 
     <div id="app-2">
@@ -38,6 +30,13 @@
         <p>{{ message }}</p>
         <input v-model="newModel" v-on:input="onInput">
         <button v-on:click="reverseMessage">Reverse Message</button>
+        <br>
+        <button v-on:click="counter++">Increase</button>
+        <button v-on:click="counter--">Decrease</button>
+        <button v-on:click="secondCounter++">Increase second</button>
+
+        <p>Counter: {{counter}} | {{secondCounter}}</p>
+        <p>Result: <span>{{output}} | {{result()}}</span></p>
     </div>
 
     <div id="example">

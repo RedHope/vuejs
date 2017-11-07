@@ -44,7 +44,9 @@ var app5 = new Vue({
     el: '#app-5',
     data: {
         message: 'Hello Vue.js!',
-        newModel: ''
+        newModel: '',
+        counter: 0,
+        secondCounter: 0
     },
     methods: {
         reverseMessage: function () {
@@ -52,6 +54,14 @@ var app5 = new Vue({
         },
         onInput: function () {
             console.log(this.newModel);
+        },
+        result: function () {
+            return this.secondCounter > 5 ? 'Greater than 5' : 'Smaller than 5'
+        }
+    },
+    computed: {
+        output: function () {
+            return this.counter > 5 ? 'Greater than 5' : 'Smaller than 5'
         }
     }
 });
