@@ -1,14 +1,12 @@
+import App from './App.vue';
 import Vue from 'vue';
-import HealthBar from './HealthBar.vue';
 
-Vue.component(HealthBar.name, HealthBar);
+Vue.component(App.name, App);
 
-var app = new Vue({
+let app = new Vue({
     el: '#app',
-    data: {
-        message: 'Hello Vue!'
-    },
     components: {
-        HealthBar
+        App
     }
 });
+export default App;
