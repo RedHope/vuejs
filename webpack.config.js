@@ -7,8 +7,17 @@ module.exports = {
     path: path.resolve(__dirname, 'dist')
   },
   resolve: {
-      alias: {
-          'vue$': 'vue/dist/vue.js'
-      }
+    alias: {
+      'vue$': 'vue/dist/vue.js'
+    }
+  },
+  module: {
+    loaders: [{
+      "test": /\.vue$/,
+      "loader": "vue-loader"
+    }, {
+      test: /\.scss||.css/,
+      loader: 'css-loader'
+    }]
   }
 };
