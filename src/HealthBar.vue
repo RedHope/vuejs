@@ -7,7 +7,7 @@
 <template>
   <div class="health-bar">
       <div :style="style">
-        &nbsp;
+       {{currentHealth}}
       </div>
   </div>
 </template>
@@ -15,17 +15,29 @@
 <<script>
 export default {
   name: 'health-bar',
+  props: {
+    id: {
+      type: String,
+      required: true,
+      default: 'player-1'
+    },
+    currentHealth: {
+      type: Number,
+      required: true,
+      default: 100
+    }
+  },
   data() {
     return {
-      currentHealth: 100,
-      id: ''
+      
     }
   },
   computed: {
     style() {
       return {
         backgroundColor: 'green',
-        width: this.currentHealth + '%'
+        width: this.currentHealth + '%',
+        textAlign: 'center'
       }
     }
   }
