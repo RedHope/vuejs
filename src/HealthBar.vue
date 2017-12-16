@@ -23,8 +23,10 @@ export default {
   },
   computed: {
     style() {
-      backgroundColor: 'green',
-      width: this.currentHealth
+      return {
+        backgroundColor: 'green',
+        width: this.currentHealth + '%'
+      }
     }
   }
 }
