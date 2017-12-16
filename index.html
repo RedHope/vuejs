@@ -8,59 +8,7 @@
 
 <body>
     <div id="app">
-        {{ message }}
-    </div>
-
-    <div id="exercise">
-        <div class="demo" :style="{'background-color': color}"></div>
-        <div class="demo" :style="myStyle"></div>
-        <div class="demo" :style="[myStyle, {height: width + 'px'}]"></div>
-        <hr>
-        <input type="text" v-model="color">
-        <input type="text" v-model="width">
-    </div>
-
-    <div id="app-2">
-        <span v-bind:title="message">
-            Hover your mouse over me for a few seconds to see my dynamically bound title!
-        </span>
-        <h1 v-once>{{welcomeMessage}}</h1>
-        <p>{{sayHello()}} - <a v-bind:href="link">Google</a></p>
-        <hr>
-        <p v-html="finishedLink"></p>
-        <p v-on:mousemove="updateCoordinates">{{x}} / {{y}}</p>
-    </div>
-
-    <div id="app-5">
-        <input v-model="message">
-        <p>{{ message }}</p>
-        <input v-model="newModel" v-on:input="onInput">
-        <button v-on:click="reverseMessage">Reverse Message</button>
-        <br>
-        <button v-on:click="counter++">Increase</button>
-        <button v-on:click="counter--">Decrease</button>
-        <button v-on:click="secondCounter++">Increase second</button>
-
-        <p>Counter: {{counter}} | {{secondCounter}}</p>
-        <p>Result: <span>{{output}} | {{result()}}</span></p>
-    </div>
-
-    <div id="example">
-        <p>{{message}}</p>
-        {{reversedMessage()}}
-        <div>
-            <label>Enter First name: </label>
-            <input v-model="firstName">
-            <label>Enter Last name: </label>
-            <input v-model="lastName"> {{fullName}}
-        </div>
-
-        <div v-if="Math.random() > 0.5">
-            Now you see me
-        </div>
-        <div v-else>
-            Now you don't
-        </div>
+        
     </div>
 
     <script type="text/javascript" src="./source.js"></script>
