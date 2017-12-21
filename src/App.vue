@@ -16,6 +16,7 @@
 .player-monster {
   align-self: flex-end;
   text-align: -webkit-right;
+  margin-left: 20%
 }
 </style>
 

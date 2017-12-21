@@ -1,7 +1,9 @@
 <style scoped>
-  .health-bar{
-    width: 300px
-  }
+.health-bar {
+  width: 300px;
+  height: 30px;
+  background-color: aliceblue;
+}
 </style>
 
 <template>
@@ -12,14 +14,14 @@
   </div>
 </template>
 
-<<script>
+<script>
 export default {
-  name: 'health-bar',
+  name: "health-bar",
   props: {
     id: {
       type: String,
       required: true,
-      default: 'player-1'
+      default: "player-1"
     },
     currentHealth: {
       type: Number,
@@ -28,18 +30,18 @@ export default {
     }
   },
   data() {
-    return {
-      
-    }
+    return {};
   },
   computed: {
     style() {
       return {
-        backgroundColor: 'green',
-        width: this.currentHealth + '%',
-        textAlign: 'center'
-      }
+        backgroundColor: "green",
+        width: this.currentHealth + "%",
+        textAlign: "center",
+        height: '100%',
+        color: 'white'
+      };
     }
   }
-}
+};
 </script>
