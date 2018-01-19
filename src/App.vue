@@ -1,7 +1,7 @@
 <style scoped>
 .app {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 .player-info {
   display: flex;
@@ -16,7 +16,7 @@
 .player-monster {
   align-self: flex-end;
   text-align: -webkit-right;
-  margin-left: 20%
+  margin-left: 20%;
 }
 </style>
 
@@ -25,18 +25,19 @@
     <div class="app">
          <div class="player-info">
              <div class="player-you">
-                 <h1>You</h1>
+                 <h1 :style="{textAlign: 'center'}">You</h1>
                  <health-bar
                     :id="'player-1'"
                     :current-health="this.player1Health"></health-bar>
              </div>
              <div class="player-monster">
-                  <h1>Monster</h1>
+                  <h1 :style="{textAlign: 'center'}">Monster</h1>
                  <health-bar
                     :id="'player-2'"
                     :current-health="this.player2Health"></health-bar>
              </div>
          </div>
+         <button-section></button-section>
     </div>
 </template>
 
@@ -44,6 +45,7 @@
 <script>
 import Vue from "vue";
 import HealthBar from "./HealthBar.vue";
+import ButtonSection from "./ButtonSection.vue";
 
 export default {
   name: "app",
@@ -55,7 +57,8 @@ export default {
     };
   },
   components: {
-    HealthBar
+    HealthBar,
+    ButtonSection
   }
 };
 </script>
