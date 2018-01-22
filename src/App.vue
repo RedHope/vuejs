@@ -41,6 +41,8 @@
              </div>
          </div>
          <button-section
+          :is-game-in-progress="isGameInProgress"
+          v-on:startGame="startGame"
           v-on:attack="attack"
           v-on:spclAttack="spclAttack"
           v-on:healSelf="healSelf"
@@ -71,7 +73,8 @@ export default {
       player2Health: 100,
       actionModifier: 10,
       turns: [],
-      turnNumber: 0
+      turnNumber: 0,
+      isGameInProgress: false
     };
   },
   methods: {
@@ -126,11 +129,15 @@ export default {
     },
     alert() {
       if (this.hasGameEnded && this.isPlayer1Winner) {
-        alert('You win. End of game');
-        this.endGame();
+        let result = confirm('You win. New game?');
+        if (result) {
+          this.endGame();
+        }
       } else if (this.hasGameEnded) {
-        alert('You lose');
-        this.endGame();
+        let result = confirm('You lose. New game?');
+        if (result) {
+          this.endGame();
+        }
       }
     }
   },

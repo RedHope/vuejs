@@ -3,6 +3,7 @@
   width: 300px;
   height: 30px;
   background-color: aliceblue;
+  
 }
 </style>
 
@@ -39,7 +40,8 @@ export default {
         width: this.currentHealth + "%",
         textAlign: "center",
         height: '100%',
-        color: 'white'
+        color: 'white',
+        transition: 'width 500ms'
       };
     }
   }

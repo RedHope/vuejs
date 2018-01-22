@@ -14,30 +14,29 @@
 
 <script>
 export default {
-  name: "button-section",
+  name: 'button-section',
   data() {
-    return {
-      isGameInProgress: false,
-      actionModifier: 50
-    };
+    return {};
+  },
+  props: {
+    isGameInProgress: Boolean
   },
   methods: {
     startGame() {
-      this.isGameInProgress = true;
       this.$emit('startGame');
     },
     attack() {
       this.$emit('attack');
     },
     spclAttack() {
-      this.$emit('spclAttack');      
+      this.$emit('spclAttack');
     },
     healSelf() {
-      this.$emit('healSelf');      
+      this.$emit('healSelf');
     },
     endGame() {
       this.isGameInProgress = false;
-      this.$emit('endGame');      
+      this.$emit('endGame');
     }
   }
 };
