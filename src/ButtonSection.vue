@@ -27,10 +27,6 @@ export default {
       this.$emit('startGame');
     },
     attack() {
-      // let playerAttack, monsterAttack;
-
-      // playerAttack = getRandomActionValue(this.actionModifier);
-      // monsterAttack = getRandomActionValue(this.actionModifier);
       this.$emit('attack');
     },
     spclAttack() {
@@ -54,6 +50,7 @@ export default {
   box-shadow: 0px 0px 4px 0px black;
   width: 80%;
   margin: 0 auto;
+  margin-bottom: 5%;
 }
 
 .btn-group {

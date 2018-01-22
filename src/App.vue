@@ -42,7 +42,13 @@
          </div>
          <button-section
           v-on:attack="attack"
-          v-on:spclAttack="spclAttack"></button-section>
+          v-on:spclAttack="spclAttack"
+          v-on:healSelf="healSelf"
+          v-on:endGame="endGame"></button-section>
+          <turns-section :turns="turns"
+            v-if="turns.length > 0">
+          </turns-section>
+          {{alert}}
     </div>
 </template>
 
@@ -51,18 +57,21 @@ function getRandomActionValue(modifier) {
   return Math.floor(Math.random() * modifier);
 }
 
-import Vue from "vue";
-import HealthBar from "./HealthBar.vue";
-import ButtonSection from "./ButtonSection.vue";
+import Vue from 'vue';
+import HealthBar from './HealthBar.vue';
+import ButtonSection from './ButtonSection.vue';
+import TurnsSection from './TurnsSection.vue';
 
 export default {
-  name: "app",
+  name: 'app',
   data() {
     return {
-      message: "Hello Vue",
+      message: 'Hello Vue',
       player1Health: 100,
       player2Health: 100,
-      actionModifier: 10
+      actionModifier: 10,
+      turns: [],
+      turnNumber: 0
     };
   },
   methods: {
@@ -84,30 +93,51 @@ export default {
       this.modifyPlayerHealthValues(-monsterAttack, -playerAttack);
     },
     healSelf() {
-      player1Delta = getRandomActionValue(this.actionModifier) - getRandomActionValue(this.actionModifier * 0.8);
-      this.modifyPlayerHealthValues(player1Delta, 0);
+      if (this.player1Health < 100) {
+        let player1Delta =
+          getRandomActionValue(this.actionModifier) -
+          getRandomActionValue(this.actionModifier * 0.8);
+        this.modifyPlayerHealthValues(player1Delta, 0);
+      }
     },
     endGame() {
       this.isGameInProgress = false;
       this.player1Health = 100;
       this.player2Health = 100;
+      this.turns = [];
     },
     modifyPlayerHealthValues(player1Delta, player2Delta) {
       this.player1Health += player1Delta;
       this.player2Health += player2Delta;
+      this.turns.push({
+        turnNumber: this.turnNumber++,
+        playerHitValue: Math.abs(player2Delta),
+        monsterHitValue: Math.abs(player1Delta),
+        heal: player1Delta > 0
+      });
     }
   },
   computed: {
     hasGameEnded() {
-      return (this.player1Health <=0) || this.player2Health <=0;
+      return this.player1Health <= 0 || this.player2Health <= 0;
     },
     isPlayer1Winner() {
-      return this.player1Health >=0;
+      return this.player1Health >= 0;
+    },
+    alert() {
+      if (this.hasGameEnded && this.isPlayer1Winner) {
+        alert('You win. End of game');
+        this.endGame();
+      } else if (this.hasGameEnded) {
+        alert('You lose');
+        this.endGame();
+      }
     }
   },
   components: {
     HealthBar,
-    ButtonSection
+    ButtonSection,
+    TurnsSection
   }
 };
 </script>
