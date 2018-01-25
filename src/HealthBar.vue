@@ -3,7 +3,6 @@
   width: 300px;
   height: 30px;
   background-color: aliceblue;
-  
 }
 </style>
 
@@ -17,12 +16,12 @@
 
 <script>
 export default {
-  name: "health-bar",
+  name: 'health-bar',
   props: {
     id: {
       type: String,
       required: true,
-      default: "player-1"
+      default: 'player-1'
     },
     currentHealth: {
       type: Number,
@@ -36,9 +35,9 @@ export default {
   computed: {
     style() {
       return {
-        backgroundColor: "green",
-        width: this.currentHealth + "%",
-        textAlign: "center",
+        backgroundColor: 'green',
+        width: this.currentHealth + '%',
+        textAlign: 'center',
         height: '100%',
         color: 'white',
         transition: 'width 500ms'

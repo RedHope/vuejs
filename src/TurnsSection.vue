@@ -39,16 +39,16 @@ export default {
 }
 
 .player-hit {
-    background-color: coral;
-    color: red;
-    margin: 2px;
-    width: 100%;
+  background-color: coral;
+  color: red;
+  margin: 2px;
+  width: 100%;
 }
 
 .monster-hit {
-    background-color: lightskyblue;
-    color: purple;
-    width: 100%;
-    margin: 2px;    
+  background-color: lightskyblue;
+  color: purple;
+  width: 100%;
+  margin: 2px;
 }
 </style>
