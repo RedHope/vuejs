@@ -1,12 +1,8 @@
-import App from './project-1/App.vue';
 import Vue from 'vue';
+import App from './project-2/App.vue';
 
-Vue.component(App.name, App);
-
-let app = new Vue({
+new Vue({
     el: '#app',
-    components: {
-        App
-    }
-});
-export default App;
+    render: h => h(App)
+  })
+  
