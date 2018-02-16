@@ -9,6 +9,6 @@
     },
     "extends": ["plugin:vue/recommended"],
     "plugins": [
-        "html"
+        "html", "prettier"
     ]
 }

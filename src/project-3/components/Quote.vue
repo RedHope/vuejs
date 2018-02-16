@@ -1,12 +1,19 @@
 <template>
   <div>
-      <p>Some quote</p>
+      <div class="title">
+          <slot name="title">Default content renders here</slot>
+      </div>
+      <div class="content">
+          <slot name="content"></slot>
+      </div>
   </div>
 </template>
 
 <script>
 export default {
-
+    props: {
+        quote: String
+    }
 }
 </script>
 
@@ -17,5 +24,9 @@ export default {
         padding: 30px;
         margin: 30px auto;
         text-align: center;
+    }
+
+    .title {
+        font-style: italic;
     }
 </style>
