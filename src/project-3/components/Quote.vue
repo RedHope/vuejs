@@ -2,6 +2,7 @@
   <div>
       <div class="title">
           <slot name="title">Default content renders here</slot>
+          <span v-translate>Inner</span>
       </div>
       <div class="content">
           <slot name="content"></slot>
