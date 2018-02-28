@@ -3,7 +3,7 @@
         <quote-counter :current-count="currentCount" :max-count="maxCount"/>
         <quotes-input @quote="updateQuote"/>
         <quotes :quotes="quotes" @remove="removeQuote"/>
-        <switch />
+        <switch v-model="dataSwitch"/>
     </div>
 </template>
 
@@ -17,14 +17,16 @@ export default {
   components: {
     QuoteCounter,
     QuotesInput,
-    Quotes
+    Quotes,
+    Switch
   },
   data() {
     return {
       currentCount: 0,
       maxCount: 10,
       quotes: [],
-      error: false
+      error: false,
+      dataSwitch: true
     };
   },
   methods: {
