@@ -3,6 +3,7 @@
         <quote-counter :current-count="currentCount" :max-count="maxCount"/>
         <quotes-input @quote="updateQuote"/>
         <quotes :quotes="quotes" @remove="removeQuote"/>
+        <switch />
     </div>
 </template>
 
@@ -10,6 +11,7 @@
 import QuoteCounter from './QuoteCounter.vue';
 import QuotesInput from './QuotesInput.vue';
 import Quotes from './Quotes.vue';
+import Switch from './Switch.vue';
 export default {
   name: 'app',
   components: {
