@@ -1,8 +1,8 @@
 <template>
   <div class="quote-counter">
       <h3 class="quote-counter__header">Quotes Added</h3>
-      <div class="quote-counter__progress-bar-container">
-          <div class="quote-counter__progress-bar" :style="classObject" v-if="currentCount">
+      <div class="quote-counter__progress-bar-container progress">
+          <div class="quote-counter__progress-bar progress-bar" :style="classObject" v-if="currentCount">
               <span class="quote-counter__progress">{{currentCount}} / {{maxCount}}</span>
           </div>
       </div>  
