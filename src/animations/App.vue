@@ -149,8 +149,8 @@ export default {
   transition: opacity 1s;
 }
 
-.fade-leave {
-}
+/* .fade-leave {
+} */
 
 .fade-leave-active {
   transition: opacity 1s;
@@ -170,8 +170,8 @@ export default {
   transition: transform 1s;
 }
 
-.slide-leave {
-}
+/* .slide-leave {
+} */
 .slide-leave-active {
   animation: slide-out 1s ease-out forwards;
   transition: opacity 0.5s;
