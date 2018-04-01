@@ -40,22 +40,38 @@
                   @leave-cancelled="leaveCancelled">
                   <div style="width: 100px; height: 100px; background-color: lightgreen" v-if="load"></div> 
                 </transition>
+                <hr>
+                <button class="btn btn-primary"
+                  @click="toggleComponent">Toggle Components</button>
+                  <br><br>
+                  <transition name="fade" appear mode="out-in">
+                    <component :is="selectedComponent"></component>
+                  </transition>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+import Danger from './Danger.vue';
+import Success from './Success.vue';
+
 export default {
   data() {
     return {
       show: true,
       load: false,
       alertAnimation: 'fade',
-      elementWidth: 100
+      elementWidth: 100,
+      selectedComponent: 'Danger'
     };
   },
   methods: {
+    toggleComponent() {
+      this.selectedComponent == 'Danger'
+        ? (this.selectedComponent = 'Success')
+        : (this.selectedComponent = 'Danger');
+    },
     beforeEnter(el) {
       console.log('beforeEnter');
     },
@@ -99,6 +115,10 @@ export default {
     leaveCancelled() {
       console.log('cancelled');
     }
+  },
+  components: {
+    Danger,
+    Success
   }
 };
 </script>
