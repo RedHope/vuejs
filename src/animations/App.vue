@@ -43,10 +43,20 @@
                 <hr>
                 <button class="btn btn-primary"
                   @click="toggleComponent">Toggle Components</button>
-                  <br><br>
-                  <transition name="fade" appear mode="out-in">
-                    <component :is="selectedComponent"></component>
-                  </transition>
+                <br><br>
+                <transition name="fade" appear mode="out-in">
+                  <component :is="selectedComponent"></component>
+                </transition>
+                <hr>
+                <button class="btn btn-primary" @click="addItem">Add Item</button>
+                <br>
+                <br>
+                <ul class="list-group">
+                  <transition-group name="slide">
+                    <li class="list-group-item" v-for="(number, index) in numbers" :key="index"
+                    @click="removeItem(index)">{{number}}</li>
+                  </transition-group>
+                </ul>
             </div>
         </div>
     </div>
@@ -63,10 +73,17 @@ export default {
       load: false,
       alertAnimation: 'fade',
       elementWidth: 100,
-      selectedComponent: 'Danger'
+      selectedComponent: 'Danger',
+      numbers: [1, 2, 3, 4, 5]
     };
   },
   methods: {
+    addItem() {
+      this.numbers.push(Math.floor(Math.random() * this.numbers.length));
+    },
+    removeItem(index) {
+      this.numbers.splice(index, 1);
+    },
     toggleComponent() {
       this.selectedComponent == 'Danger'
         ? (this.selectedComponent = 'Success')
@@ -149,12 +166,17 @@ export default {
   transition: opacity scale 0.5s;
 }
 
+.slide-move {
+  transition: transform 1s;
+}
+
 .slide-leave {
 }
 .slide-leave-active {
   animation: slide-out 1s ease-out forwards;
   transition: opacity 0.5s;
   opacity: 0;
+  position: absolute;
 }
 
 @keyframes slide-in {
@@ -174,4 +196,8 @@ export default {
     transform: translateY(20px);
   }
 }
+
+/* .list-group {
+  min-height: 300px;
+} */
 </style>
