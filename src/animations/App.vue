@@ -26,6 +26,20 @@
                     <div class="alert alert-info" v-if="show" key="alert">This is some info</div>
                     <div class="alert alert-warning" v-else key="warning">This is some warning</div>                    
                 </transition>
+                <hr>
+                <button class="btn btn-primary" @click="load = !load">Load / Remove</button>
+                <br><br>
+                <transition
+                  @before-enter="beforeEnter"
+                  @enter="enter"
+                  @after-enter="afterEnter"
+                  @enter-cancelled="enterCancelled"
+                  @before-leave="beforeLeave"
+                  @leave="leave"
+                  @after-leave="afterLeave"
+                  @leave-cancelled="leaveCancelled">
+                  <div style="width: 100px; height: 100px; background-color: lightgreen" v-if="load"></div> 
+                </transition>
             </div>
         </div>
     </div>
@@ -36,8 +50,55 @@ export default {
   data() {
     return {
       show: true,
-      alertAnimation: 'fade'
+      load: false,
+      alertAnimation: 'fade',
+      elementWidth: 100
     };
+  },
+  methods: {
+    beforeEnter(el) {
+      console.log('beforeEnter');
+    },
+    enter(el, done) {
+      console.log('enter');
+      let round = 1;
+      const interval = setInterval(() => {
+        el.style.width = this.elementWidth + round * 10 + 'px';
+        round++;
+        if (round > 20) {
+          clearInterval(interval);
+          done();
+        }
+      }, 20);
+    },
+    afterEnter() {
+      console.log('afterEnter');
+    },
+    enterCancelled() {
+      console.log('cancelled');
+    },
+    beforeLeave(el) {
+      console.log('beforeleave');
+      el.style.width = '300px';
+    },
+    leave(el, done) {
+      console.log('leave');
+      let round = 1;
+      const interval = setInterval(() => {
+        el.style.width = 300 - round * 10 + 'px';
+        round++;
+        if (round > 20) {
+          clearInterval(interval);
+          done();
+        }
+      }, 20);
+    },
+    afterLeave() {
+      console.log('afterleave');
+    },
+    leaveCancelled() {
+      console.log('cancelled');
+    }
   }
 };
 </script>
