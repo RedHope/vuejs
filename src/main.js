@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import App from './animations/App.vue';
+import App from './animations-project/App.vue';
 
 Vue.directive('translate', function(el) {
   el.innerHTML = 'translated';
