@@ -40,7 +40,12 @@ module.exports = {
     historyApiFallback: true,
     noInfo: true
   },
-  devtool: '#source-map'
+  devtool: '#source-map',
+  plugins: [
+    new webpack.DefinePlugin({
+      ENVIRONMENT: JSON.stringify(process.env)
+    })
+  ]
 };
 
 if (process.env.NODE_ENV === 'production') {
