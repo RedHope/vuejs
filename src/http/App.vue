@@ -31,18 +31,21 @@ export default {
         username: '',
         email: ''
       },
-      usersArray: []
+      usersArray: [],
+      resourece: {}
     };
   },
   methods: {
     async submit() {
-      //   console.log('submit', this.user, ENVIRONMENT.FIREBASE_URL);
-      const result = await this.$http.post(``, this.user);
+      await this.resource.save({}, this.user);
     },
     async getData() {
-      const result = await this.$http.get(``);
+      const result = await this.$http.get(`data.json`);
       this.usersArray = result.body;
     }
+  },
+  created() {
+    this.resource = this.$resource('data.json');
   }
 };
 </script>
