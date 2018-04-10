@@ -25,28 +25,31 @@
 
 <script>
 export default {
-  data() {
-    return {
-      user: {
-        username: '',
-        email: ''
-      },
-      usersArray: [],
-      resourece: {}
-    };
-  },
-  methods: {
-    async submit() {
-      await this.resource.save({}, this.user);
+    data() {
+        return {
+            user: {
+                username: '',
+                email: ''
+            },
+            usersArray: [],
+            resource: {}
+        };
     },
-    async getData() {
-      const result = await this.$http.get(`data.json`);
-      this.usersArray = result.body;
+    methods: {
+        async submit() {
+            await this.resource.saveAlt(this.user);
+        },
+        async getData() {
+            const result = await this.$http.get(`data.json`);
+            this.usersArray = result.body;
+        }
+    },
+    created() {
+        const customActions = {
+            saveAlt: { method: 'POST', url: 'alternative.json' }
+        };
+        this.resource = this.$resource('data.json', {}, customActions);
     }
-  },
-  created() {
-    this.resource = this.$resource('data.json');
-  }
 };
 </script>
 
