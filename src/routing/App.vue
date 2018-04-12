@@ -4,6 +4,7 @@
           <div class="col-sm-12">
               <h1>Routing</h1>
               <hr>
+              <Header/>
               <router-view></router-view>
           </div>
       </div>
@@ -11,9 +12,12 @@
 </template>
 
 <script>
+import Header from './Header.vue';
 export default {
-
-}
+  components: {
+    Header
+  }
+};
 </script>
 
 <style>
