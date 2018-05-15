@@ -1,6 +1,6 @@
 {
-  "prettier.singleQuote": true,
-  "prettier.disableLanguages": ["vue"],
-  "vetur.format.defaultFormatter.html": "js-beautify-html",
-  "vetur.format.defaultFormatter.js": "prettier"
+    "prettier.singleQuote": true,
+    "prettier.disableLanguages": ["vue"],
+    "vetur.format.defaultFormatter.html": "js-beautify-html",
+    "vetur.format.defaultFormatter.js": "prettier"
 }
