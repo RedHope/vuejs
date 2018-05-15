@@ -2,8 +2,9 @@
     <div>
         <h1>The User page</h1>
         <hr>
-        <p>The loaded ID: {{id}}</p>
+        <p>The loaded ID:</p>
         <button class="btn btn-primary" @click="goHome">Go to Home</button>
+        <router-view></router-view>
     </div>
 </template>
 
@@ -14,16 +15,6 @@ export default {
             this.$router.push({
                 path: '/'
             });
-        }
-    },
-    data() {
-        return {
-            id: this.$route.params.id
-        };
-    },
-    watch: {
-        $route(to, from) {
-            this.id = to.params.id;
         }
     }
 };
