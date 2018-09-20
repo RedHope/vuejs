@@ -1,0 +1,3 @@
+--require tests/setup.js
+--webpack-config webpack.test.js
+tests/**/*.spec.js
